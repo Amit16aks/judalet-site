@@ -1,0 +1,749 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary-color: #87CEEB;
+    --accent-color-1: #FF69B4;
+    --accent-color-2: #FFFF00;
+}
+
+body {
+    background: var(--primary-color);
+    color: #333;
+    line-height: 1.6;
+}
+
+.location-display-bar {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px 20px;
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: 400;
+    color: var(--primary-color);
+    font-style: italic;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: var(--primary-color);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 120px;
+    transition: top 0.3s;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+.logo-img {
+    max-width: 150px;
+    height: auto;
+    transition: max-width 0.3s;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: var(--accent-color-1);
+    font-weight: 600;
+    margin-left: 20px;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.contact {
+    font-size: 0.9rem;
+    color: var(--accent-color-2);
+}
+
+.order-btn {
+    background: var(--accent-color-1);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.order-btn:hover {
+    background: var(--accent-color-2);
+    color: #000;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--accent-color-2);
+    cursor: pointer;
+}
+
+.nav {
+    display: flex;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-icon {
+    position: relative;
+    color: var(--accent-color-2);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.nav-icon:hover {
+    color: var(--accent-color-1);
+}
+
+.nav-icon[data-tooltip]:hover:after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.banner {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.carousel {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+.carousel-slides {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-color-2);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.5s;
+    text-decoration: none;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.banner-content {
+    background: rgba(135, 206, 235, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.banner-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.banner-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.banner-btn {
+    background: var(--accent-color-1);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.banner-btn:hover {
+    background: var(--accent-color-2);
+    color: #000;
+}
+
+.menu, .reviews, .order-section, .rewards-section, .community-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.menu h2, .reviews h2, .order-section h2 {
+    font-size: 2rem;
+    color: var(--accent-color-2);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.category {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.specials {
+    margin: 10px 0;
+}
+
+.review-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.review {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-form, .rewards-info, .events, .donation-form, .review-form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.order-item {
+    margin: 10px 0;
+}
+
+.order-item p {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.order-item input {
+    width: 60px;
+    padding: 5px;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.order-btn-small {
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: var(--accent-color-1);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.order-btn-small:hover {
+    background-color: var(--accent-color-2);
+    color: #000;
+}
+
+.custom-option {
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review-form input, .review-form textarea {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.review-form textarea {
+    height: 100px;
+}
+
+.event {
+    margin: 15px 0;
+}
+
+.footer {
+    background: var(--accent-color-1);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section.left {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-section.center {
+    text-align: center;
+}
+
+.footer-section.right {
+    text-align: right;
+}
+
+.contact {
+    font-size: 0.9rem;
+    color: var(--accent-color-2);
+    margin-bottom: 5px;
+}
+
+.social {
+    font-size: 0.9rem;
+    color: var(--accent-color-2);
+}
+
+.social a {
+    color: var(--accent-color-2);
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.social a:hover {
+    color: var(--primary-color);
+}
+
+.donate-btn {
+    position: relative;
+    background: url('flag-usa.png') no-repeat center;
+    background-size: cover;
+    border: none;
+    width: 150px;
+    height: 80px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+    margin-bottom: 5px;
+}
+
+.donate-btn .btn-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000000;
+    font-weight: 600;
+    font-size: 1rem;
+    text-shadow: 2px 2px 4px white;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.donate-btn:hover .btn-text {
+    color: #3C3B6E;
+}
+
+.donate-btn:hover {
+    animation: waveEffect 0.5s infinite alternate;
+}
+
+@keyframes waveEffect {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-5px) scale(1.02);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+.total-donations {
+    font-size: 0.9rem;
+    color: var(--accent-color-2);
+}
+
+.total-donations span {
+    font-size: 0.7rem;
+    color: #ccc;
+}
+
+.donation-note {
+    font-size: 0.8rem;
+    color: #fff;
+    max-width: 300px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.build-your-own, .specials {
+    margin: 10px 0;
+}
+
+.build-your-own select, .build-your-own button {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Admin Panel Styling */
+.admin-panel {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-panel h2 {
+    font-size: 2rem;
+    color: var(--accent-color-2);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.admin-panel form {
+    margin-bottom: 20px;
+}
+
+.admin-panel label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.admin-panel input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.admin-panel button {
+    background: var(--accent-color-1);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.admin-panel button:hover {
+    background: var(--accent-color-2);
+    color: #000;
+}
+
+.admin-panel table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.admin-panel th, .admin-panel td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.admin-panel th {
+    background-color: var(--accent-color-1);
+    color: white;
+}
+
+.admin-panel td form {
+    display: inline;
+}
+
+.admin-panel a {
+    display: block;
+    margin-top: 20px;
+    color: var(--accent-color-1);
+    text-decoration: none;
+}
+
+.admin-panel a:hover {
+    color: var(--accent-color-2);
+    text-decoration: underline;
+}
+
+/* Specific button styles for admin_products.php */
+.admin-panel .description-view-btn {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    background-color: #4CAF50 !important; /* Green */
+    color: white !important;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.admin-panel .description-view-btn:hover {
+    background-color: #45a049 !important; /* Darker green */
+}
+
+.admin-panel .add-product-btn {
+    margin-left: auto;
+    padding: 10px 20px;
+    background-color: var(--accent-color-1) !important; /* Pink */
+    color: white !important;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.admin-panel .add-product-btn:hover {
+    background-color: #FF1493 !important; /* Darker pink */
+}
+
+.admin-panel .action-buttons button {
+    padding: 5px 10px;
+    margin: 2px;
+    background-color: var(--accent-color-1); /* Pink for Edit/Delete */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.admin-panel .action-buttons button:hover {
+    background-color: var(--accent-color-2); /* Yellow */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .nav ul {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: var(--primary-color);
+        flex-direction: column;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .nav ul.active {
+        display: flex;
+    }
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 10px;
+    }
+    .logo-img {
+        max-width: 100px;
+    }
+    .tagline {
+        font-size: 1rem;
+        margin-left: 10px;
+    }
+    .right-section {
+        align-items: flex-end;
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+    .banner {
+        height: 250px;
+    }
+    .banner-content h1 {
+        font-size: 1.8rem;
+    }
+    .banner-content p {
+        font-size: 1rem;
+    }
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .footer-section {
+        text-align: center;
+        width: 100%;
+    }
+    .donate-btn {
+        width: 120px;
+        height: 60px;
+    }
+    .donate-btn .btn-text {
+        font-size: 0.9rem;
+    }
+    .donation-note {
+        max-width: 100%;
+    }
+    .menu, .reviews, .order-section {
+        padding: 20px 10px;
+    }
+    .admin-panel {
+        padding: 20px 10px;
+    }
+    .admin-panel h2 {
+        font-size: 1.5rem;
+    }
+    .admin-panel table {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        max-width: 90px;
+    }
+    .tagline {
+        font-size: 0.9rem;
+    }
+    .nav ul {
+        top: 50px;
+        right: 10px;
+    }
+    .order-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    .banner {
+        height: 200px;
+    }
+    .contact, .total-donations, .social a, .donation-note {
+        font-size: 0.8rem;
+    }
+    .donate-btn {
+        width: 100px;
+        height: 50px;
+    }
+    .donate-btn .btn-text {
+        font-size: 0.8rem;
+    }
+    .admin-panel input, .admin-panel button {
+        font-size: 0.9rem;
+    }
+    .admin-panel table th, .admin-panel table td {
+        padding: 8px;
+    }
+}
